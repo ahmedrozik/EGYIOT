@@ -1,0 +1,163 @@
+<html>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<head>
+  <title>ThingSpeak</title>
+  <meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta name="description" content="Open source data platform and API for the Internet of Things."/>
+  <meta name="keywords" content="iot, internet of things, iot platform, github, open source, internet of things platform, iobridge"/>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link href="css/font-awesome.min.css" media="screen" rel="stylesheet" />
+  <link data-turbolinks-track="true" href="css/application-34ab6c80c76e48d799f77e7e60386577.css" media="screen" rel="stylesheet" />
+
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type='text/javascript' src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+  <script data-turbolinks-track="true" src="js/application-6fc220d7a77fd902426521898e0585b7.js"></script>
+
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="VktIW01tQf90v4pmDopsYwNVvu2xGcUhgqWBVTmY/+0=" name="csrf-token" />
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20107670-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  
+</head>
+
+
+
+  <body>
+
+    <div id="wrap">
+      <div class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.html">
+        <img alt="Thingspeak logo white" height="35" src="assets/thingspeak_logo_white-9cac8b416f09882dd73a79fb6cf638f1.png" style="padding: 0 8px; margin-top: 7px;" width="188" />
+</a>    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+
+            <li ><a href="channels/public.html">Channels</a></li>
+            <li ><a href="apps.html">Apps</a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="docs/tutorials/index.html">Tutorials</a></li>
+            <li><a href="http://community.thingspeak.com/forum/">Forum</a></li>
+          </ul>
+        </li>
+
+        <li><a href="http://community.thingspeak.com/">Blog</a></li>
+
+          <li><a href="login">Sign In</a></li>
+          <li><a href="sign_up">Sign Up</a></li>
+
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+
+      <div class="container">
+        
+
+        <div class="row">
+  <div class="col-sm-6 col-xs-12">
+
+    <h4 class="breadcrumb">
+        Please sign in to access your account.
+    </h4>
+
+    
+    
+
+    <form accept-charset="UTF-8" action="login" class="form-horizontal" id="loginform" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="VktIW01tQf90v4pmDopsYwNVvu2xGcUhgqWBVTmY/+0=" /></div>
+      <input name='userlogin' class='userlogin' />
+<!--user[login]   user[password]-->
+      <div class="form-group">
+        <label class="col-sm-4 col-xs-3 control-label">User ID</label>
+        <div class="col-sm-8 col-xs-9"><input class="form-control" id="user_login" name="email" type="text" /></div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-4 col-xs-3 control-label">Password</label>
+        <div class="col-sm-8 col-xs-9">
+          <input class="form-control" id="user_password" name="pass" type="password" />
+          <a href="users/password/new.html" id="forgot_password">Forgot your password?</a>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-8 col-xs-offset-3 col-xs-9">
+          <div class="checkbox">
+            <label>
+              <input name="user[remember_me]" type="hidden" value="0" /><input checked="checked" id="user_remember_me" name="user[remember_me]" type="checkbox" value="1" />
+              Remember my User ID
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-8 col-xs-offset-3 col-xs-9"><p class="form-control-static"><input class="btn btn-primary" name="commit" type="submit" value="Sign In" /></p></div>
+      </div>
+</form>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var login = document.getElementById('user_login');
+  if (login.value.length == 0)
+    login.focus();
+  else
+    document.getElementById('user_password').focus();
+</script>
+
+
+      </div>
+    </div>
+
+    <div id="footer">
+  <div class="container">
+    <p class="text-muted">
+
+      <span class="hidden-xs pull-left">
+        <a href="index.html" title="Open Source Internet of Things">EgyptTalk.com</a> |
+        <a href="docs.html" title="ThingSpeak Documentation">Documentation</a> |
+        <a href="docs/tutorials/index.html" title="Tutorials on how to use ThingSpeak web services">Tutorials</a>
+      </span>
+    
+
+    </p>
+  </div>
+</div>
+
+
+
+  </body>
+
+
+</html>
+

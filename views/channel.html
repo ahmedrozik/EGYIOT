@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Channels - ThingSpeak</title>
+  <meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta name="description" content="Open source data platform and API for the Internet of Things.">
+  <meta name="keywords" content="iot, internet of things, iot platform, github, open source, internet of things platform, iobridge">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link href="css/font-awesome.min.css" media="screen" rel="stylesheet" />
+  <link data-turbolinks-track="true" href="/assets/application-079077967c5fcf0b164b080bc2e27c83.css" media="screen" rel="stylesheet" />
+
+
+  
+ <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type='text/javascript' src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+  <script data-turbolinks-track="true" src="js/application-2fa1f01b48ec9e72eaa3ad5c1f134298.js"></script>
+  
+
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20107670-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  
+
+
+
+</script>
+
+<style>
+td, th {
+  padding: 0;
+  padding-bottom: .5em;
+  padding-top: .5em;
+}
+
+
+
+
+</style>
+
+
+
+
+
+  
+</head>
+
+
+
+  <body>
+
+    <div id="wrap">
+      <div class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/">
+        <img alt="Thingspeak logo white" height="35" src="/assets/thingspeak_logo_white-9cac8b416f09882dd73a79fb6cf638f1.png" style="padding: 0 8px; margin-top: 7px;" width="188" />
+</a>    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+
+
+          <li class="active dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Channels <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/channels">My Channels</a></li>
+             
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/account">My Account</a></li>
+              <li><a href="/account/edit">Edit Account</a></li>
+            
+            </ul>
+          </li>
+
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/docs">Documentation</a></li>
+            <li><a href="/docs/tutorials/">Tutorials</a></li>
+            
+          </ul>
+        </li>
+
+      
+
+          <li><a href="/logout">Sign Out</a></li>
+
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+
+      <div class="container">
+        
+
+        <div class="row">
+  <div class="col-xs-12 col-sm-6">
+
+    <h4 class="breadcrumb">My Channels</h4>
+
+    <div class="col-pad" data-no-turbolink>
+   
+	                 <div>
+	                  <input class="btn btn-primary" type="submit"  id="addNewChannel" value="New Channel" />
+	                    <input name="authenticity_token" type="hidden" value="do2TjaIOv5HY/HkU9iwIFAPuegJWbJQGyekO4wBcLfM=" />
+	                 </div>
+	               <br>
+
+
+
+        <table class="table table-striped table-bordered tablesorter" id="sensorsTable">
+          <thead>
+            <tr>
+              <th>Name <i class="fa fa-unsorted"></i></th>
+              <th>Created <i class="fa fa-unsorted"></i></td>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                <td>
+
+                  <h4 style="margin-top: 0;">
+                    <a href="dashboard">
+                      <i class="fa fa-unlock fa-fw"></i>
+                      EGYIOT
+                    </a>
+                  </h4>
+                  <div class="btn-group btn-group-sm hidden-xs hidden-sm">
+                    <a class="btn btn-default" href="dashboard">Private</a>
+                    <a class="btn btn-default" href="dashboard">Public</a>
+                    <a class="btn btn-default" href="dashboard">Settings</a>
+                    <a class="btn btn-default" href="dashboard">API Key</a>
+                    <a class="btn btn-default" href="dashboard">Data Import / Export</a>
+                  </div>
+
+                </td>
+                <td>2014-09-21</td>
+              </tr>
+              <tr>
+                <td>
+
+                  <h4 style="margin-top: 0;">
+                    <a href="/channels/38027">
+                      <i class="fa fa-lock fa-fw"></i>
+                      Channel 38027
+                    </a>
+                  </h4>
+                  <div class="btn-group btn-group-sm hidden-xs hidden-sm">
+                    <a class="btn btn-default" href="/channels/38027#privateview">Private</a>
+                    <a class="btn btn-default" href="/channels/38027#publicview">Public</a>
+                    <a class="btn btn-default" href="/channels/38027#channelsettings">Settings</a>
+                    <a class="btn btn-default" href="/channels/38027#apikeys">API Key</a>
+                    <a class="btn btn-default" href="/channels/38027#dataimport">Data Import / Export</a>
+                  </div>
+
+                </td>
+                <td>2015-05-15</td>
+              </tr>
+		
+          </tbody>
+        </table>
+
+
+    </div>
+  </div>
+
+  <div id="sidebar" class="col-xs-12 col-sm-6">
+
+	<div id="channelsettings" class="ui-tabs-panel ui-widget-content ui-corner-bottom" hidden>
+	
+    <div class="FL">
+	  <br><br>
+
+<div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="SA11/+0OQiHfA7FHZ4QtFfFJvRTnJPxSYolxIgrANco=" /></div>
+    <p>
+      
+    </p>
+	 <form accept-charset="UTF-8" id="addSensorForm" method="post">
+    <table class="table_no_header">
+      <tr>
+        <td class="left">Channel ID</td>
+        <td>16276</td>
+      </tr>
+
+	  <br>
+      <tr>
+        <td class="left">Name</td>
+        <td><input id="channel_name" name="channel_name" type="text" /></td>
+      </tr>
+	   <br> <br>
+      <tr>
+        <td class="left">Description</td>
+        <td><textarea cols="30" id="channel_description" name="channel_description" rows="4"></textarea></td>
+      </tr>
+	   <br>
+
+      
+    
+      <tr>
+        <td class="left">Latitude</td>
+        <td><input id="channel_latitude" name="channel_latitude" type="text" /></td>
+      </tr>
+      <tr>
+        <td class="left">Longitude</td>
+        <td><input id="channel_longitude" name="channel_longitude" type="text"/></td>
+      </tr>
+    
+      <tr>
+        <td class="left">Field </td>
+        <td><input class="field" id="channel_field1" name="channel_field1" type="text" /></td>
+      </tr>
+       <tr>
+        <td class="left">Minimum Threshold</td>
+        <td><input  id="channel_minThreshold" name="channel_minThreshold" type="text" /></td>
+      </tr>
+	   <tr>
+        <td class="left">Maxmimum Threshold</td>
+        <td><input id="channel_maxThreshold" name="channel_maxThreshold" type="text"  /></td>
+      </tr>
+	  
+      <tr>
+        <td class="left"></td>
+        <td>
+		<input class="btn btn-primary" id="addSensorBtn" name="commit" type="submit" value="Save Sensor" />
+		</td>
+      </tr>
+    </table>
+	</form>
+  <br><br>
+
+</div>
+
+<script type="text/javascript">
+
+  $(document).on('page:load ready', function() {
+  
+     $("#addNewChannel").click(function(){
+		    $('#channelsettings').show(); 
+			console.log("Button Clicked");
+
+    });
+	
+		$('#addSensorBtn').click(function(e){
+                    e.preventDefault();
+                    console.log('select_link clicked');
+				    var data = {maxthreshold:$('#channel_maxThreshold').val(),minthreshold:$('#channel_minThreshold').val(),name:$('#channel_name').val(),description:$('#channel_description').val(),longitude:$('#channel_longitude').val(),latitude:$('#channel_latitude').val(),field1:$('#channel_field1').val()};
+					data.title = "title";
+					data.message = "message";
+					
+					$.ajax({
+						type: 'POST',
+						data: JSON.stringify(data),
+				        contentType: 'application/json',
+                        url: 'http://localhost:7000/channel',						
+                        success: function(data) {
+                            console.log('success');
+                            console.log(JSON.stringify(data));
+							//<input type="text" name="txtbx'+cnt+'" value="'+cnt+'">
+									    $('#channelsettings').hide(); 
+										var today = new Date();
+                                        var dd = today.getDate();
+                                        var mm = today.getMonth()+1; //January is 0!
+                                        var yyyy = today.getFullYear();
+                                        if(dd<10) {
+                                           dd='0'+dd
+                                        } 
+
+                                         if(mm<10) {
+                                          mm='0'+mm
+                                          }    
+
+                                        today = mm+'/'+dd+'/'+yyyy;
+										
+		
+				  var dataStr=JSON.stringify(data);
+				   var str1 = dataStr.replace(/"/g, '');
+				  console.log("Generated Id"+str1);
+				  
+				  
+
+
+  $('#sensorsTable tr:last').after('<tr><td> <h4 style="margin-top: 0;"> <a href="dashboard?sensorId='+str1+'"> <i class="fa fa-unlock fa-fw"></i> EgyIOT</a> </h4></td><td>'+today+'</td></tr>');
+ 
+
+                        }
+                    });
+
+                });	
+				
+
+  });
+
+
+</script>
+
+
+  </div>
+
+
+  </div>
+
+</div>
+
+
+      </div>
+    </div>
+
+
+    <div id="footer">
+  <div class="container">
+    <p class="text-muted">
+
+      <span class="hidden-xs pull-left">
+        <a href="index.html" title="Open Source Internet of Things">EgyptTalk.com</a> |
+        <a href="docs.html" title="ThingSpeak Documentation">Documentation</a> |
+        <a href="docs/tutorials/index.html" title="Tutorials on how to use ThingSpeak web services">Tutorials</a>
+      </span>
+    
+
+    </p>
+  </div>
+</div>
+
+
+
+
+
+  </body>
+</html>
+

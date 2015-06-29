@@ -1,0 +1,119 @@
+doctype html
+html
+  meta(http-equiv='content-type', content='text/html;charset=utf-8')
+  head
+    title ThingSpeak
+    meta(content='width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no', name='viewport')
+    meta(name='description', content='Open source data platform and API for the Internet of Things.')
+    meta(name='keywords', content='iot, internet of things, iot platform, github, open source, internet of things platform, iobridge')
+    link(rel='stylesheet', href='assets/css/bootstrap.min.css')
+    link(href='assets/css/font-awesome.min.css', media='screen', rel='stylesheet')
+    link(data-turbolinks-track='true', href='assets/css/application-34ab6c80c76e48d799f77e7e60386577.css', media='screen', rel='stylesheet')
+    script(type='text/javascript', src='assets/js/jquery.min.js')
+    script(type='text/javascript', src='assets/js/bootstrap.min.js')
+    script(type='text/javascript', src='assets/jquery-ui.min.js')
+    script(data-turbolinks-track='true', src='assets/js/application-6fc220d7a77fd902426521898e0585b7.js')
+    meta(content='authenticity_token', name='csrf-param')
+    meta(content='VktIW01tQf90v4pmDopsYwNVvu2xGcUhgqWBVTmY/+0=', name='csrf-token')
+    script(type='text/javascript').
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20107670-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  body
+    #wrap
+      .navbar.navbar-inverse.navbar-default.navbar-fixed-top(role='navigation')
+        .container
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a(href='index.html')
+              img(alt='Thingspeak logo white', height='35', src='assets/thingspeak_logo_white-9cac8b416f09882dd73a79fb6cf638f1.png', style='padding: 0 8px; margin-top: 7px;', width='188')
+          .navbar-collapse.collapse
+            ul.nav.navbar-nav
+              li
+                a(href='channels/public.html') Channels
+              li
+                a(href='apps.html') Apps
+            ul.nav.navbar-nav.navbar-right
+              li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                  | Support 
+                  b.caret
+                ul.dropdown-menu
+                  li
+                    a(href='docs.html') Documentation
+                  li
+                    a(href='docs/tutorials/index.html') Tutorials
+                  li
+                    a(href='http://community.thingspeak.com/forum/') Forum
+              li
+                a(href='http://community.thingspeak.com/') Blog
+              li
+                a(href='login.html') Sign In
+              li
+                a(href='users/sign_up.html') Sign Up
+          // /.nav-collapse
+      .container
+        .row
+          .col-sm-6.col-xs-12
+            h4.breadcrumb
+              | Please sign in to access your account.
+            form#loginform.form-horizontal(accept-charset='UTF-8', action='https://thingspeak.com/users/sign_in', method='post')
+              div(style='margin:0;padding:0;display:inline')
+                input(name='utf8', type='hidden', value='✓')
+                input(name='authenticity_token', type='hidden', value='VktIW01tQf90v4pmDopsYwNVvu2xGcUhgqWBVTmY/+0=')
+              input.userlogin(name='userlogin')
+              .form-group
+                label.col-sm-4.col-xs-3.control-label User ID
+                .col-sm-8.col-xs-9
+                  input#user_login.form-control(name='user[login]', type='text')
+              .form-group
+                label.col-sm-4.col-xs-3.control-label Password
+                .col-sm-8.col-xs-9
+                  input#user_password.form-control(name='user[password]', type='password')
+                  a#forgot_password(href='users/password/new.html') Forgot your password?
+              .form-group
+                .col-sm-offset-4.col-sm-8.col-xs-offset-3.col-xs-9
+                  .checkbox
+                    label
+                      input(name='user[remember_me]', type='hidden', value='0')
+                      input#user_remember_me(checked='checked', name='user[remember_me]', type='checkbox', value='1')
+                      |               Remember my User ID
+              .form-group
+                .col-sm-offset-4.col-sm-8.col-xs-offset-3.col-xs-9
+                  p.form-control-static
+                    input.btn.btn-primary(name='commit', type='submit', value='Sign In')
+        script(type='text/javascript').
+          var login = document.getElementById('user_login');
+          if (login.value.length == 0)
+          login.focus();
+          else
+          document.getElementById('user_password').focus();
+    #footer
+      .container
+        p.text-muted
+          span.hidden-xs.pull-left
+            a(href='index.html', title='Open Source Internet of Things') ThingSpeak.com
+            |  |
+            a(href='http://community.thingspeak.com/', title='The ThingSpeak Blog covering the web of things') Blog
+            |  |
+            a(href='http://community.thingspeak.com/forum/', title='Open discussion forum for ThingSpeak') Forum
+            |  |
+            a(href='docs.html', title='ThingSpeak Documentation') Documentation
+            |  |
+            a(href='docs/tutorials/index.html', title='Tutorials on how to use ThingSpeak web services') Tutorials
+            |  |
+            a(href='http://feeds.feedburner.com/internetofthings', title='Internet of Things RSS Feed', target='_blank') RSS Feed
+          span.pull-right
+            | ©2014 
+            a(href='index.html', title='Open Source Internet of Things') ThingSpeak
+            |  - Powered by 
+            a(href='http://www.iobridge.com/', target='_blank') ioBridge

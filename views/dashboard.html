@@ -1,0 +1,341 @@
+<html>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<head>
+  <meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta name="description" content="Open source data platform and API for the Internet of Things."/>
+  <meta name="keywords" content="iot, internet of things, iot platform, github, open source, internet of things platform, iobridge"/>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link href="css/font-awesome.min.css" media="screen" rel="stylesheet" />
+  <link data-turbolinks-track="true" href="css/application-34ab6c80c76e48d799f77e7e60386577.css" media="screen" rel="stylesheet" />
+
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type='text/javascript' src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+  <script data-turbolinks-track="true" src="js/application-6fc220d7a77fd902426521898e0585b7.js"></script>
+
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="VktIW01tQf90v4pmDopsYwNVvu2xGcUhgqWBVTmY/+0=" name="csrf-token" />
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20107670-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+<title>EGY IOT</title>
+<h1 class="iottext iothead">EGY IOT</h1>
+<link rel="stylesheet" href="css/rickshaw/rickshaw.min.css"/>
+<link rel="stylesheet" href="css/dashboard.css"/>
+<link rel="stylesheet" href="css/extensions.css?v=2"/>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css"/>
+<link rel="stylesheet" href="css/jquery.datetimepicker.css"/>
+<script type="text/javascript" src="js/d3/d3.v3.js"></script>
+<script type="text/javascript" src="js/rickshaw/rickshaw.min.js"></script>
+
+<script type="text/javascript" src="js/jquery.datetimepicker.min.js"></script>
+<script type="text/javascript" src="js/rickshaw/extensions.js"></script>
+<script>
+  $(function() {
+  $( "#historicStarts" ).datetimepicker({ onShow:function( ct ){
+      this.setOptions({ maxDate: new Date() })
+  }});
+  $( "#historicEnds" ).datetimepicker({ maxDate: new Date()});
+  $( "#historicTopRange").spinner({min : 0, max : 100, step : 1})
+  .on('input', function () {
+  var val = this.value,
+  $this = $(this),
+  max = $this.spinner('option', 'max'),
+  min = $this.spinner('option', 'min');
+  if (!val.match(/^\d+$/)) 
+  val = 0;
+  this.value = val > max ? max : val < min ? min : val;
+  });
+  $( "#historicTopRange").spinner("value",10); // set the default to 100
+  });
+</script>
+    <style>
+      #map-canvas {
+		  
+width: 790px;
+  height: 185px;
+  position: relative;
+  top: 0px;
+  left: 42px;
+  
+		  
+      }
+	  
+    </style>
+	
+	 <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+      function initialize(lon,lat) {
+	  	  console.log(" From Initialize");
+
+        var mapCanvas = document.getElementById('map-canvas');
+        var mapOptions = {
+          center: new google.maps.LatLng(lat, lon),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+		
+		
+      }
+
+	
+	</script>
+  
+</head>
+
+
+
+  <body>
+  
+  <div class="navbar navbar-inverse navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="index.html">
+        <img alt="Thingspeak logo white" height="35" src="assets/thingspeak_logo_white-9cac8b416f09882dd73a79fb6cf638f1.png" style="padding: 0 8px; margin-top: 7px;" width="188" />
+</a>    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+
+            <li ><a href="channels/public.html">Channels</a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="docs/tutorials/index.html">Tutorials</a></li>
+            <li><a href="http://community.thingspeak.com/forum/">Forum</a></li>
+          </ul>
+        </li>
+
+
+          <li><a href="login">Sign Out</a></li>
+
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<div id="content"></div>
+<form id="side_panel" class="iotsidepanel">
+  <div class="devices">
+    <h1 class="devicesText">Device:</h1>
+    <select id="deviceslist" class="devicesSelect">
+      <option value="">Select a device</option>
+    </select>
+  </div>
+  <h1 class="iottext">Data</h1>
+  <section>
+    <div id="visualtype">
+      <input id="realtime" type="radio" value="realtime" name="visualtype" checked=""/>
+      <label for="realtime" class="iotlabel">Live Data</label>
+      <input id="historic" type="radio" value="historic" name="visualtype"/>
+      <label for="historic" class="iotlabel">Historic Data</label>
+      <div id="historicData" hidden="hidden">
+        <section>
+          <input id="historicRecentEvents" type="radio" value="topEvents" name="historicQuery" checked=""/>
+          <label for="historicRecentEvents" class="iotlabel">Most Recent</label>
+          <input id="historicTopRange" class="spinner"/>
+          <label for="historicTopRange" class="iottext">Events</label>
+          <input id="historicDateRange" type="radio" value="dateRange" name="historicQuery"/>
+          <label for="historicRecentEvents" class="iotlabel">Time Range</label>
+          <!--label.iotlabelleft(for="historicStarts") Starts-->
+          <input id="historicStarts" type="text" placeholder="Starts" class="histdate"/>
+          <!--label.iotlabelleft(for="historicEnds") Ends-->
+          <input id="historicEnds" type="text" placeholder="Ends" class="histdate"/><br/><br/>
+        </section>
+      </div>
+    </div>
+  </section>
+  <h1 class="iottext">Sensors</h1>
+  <section>
+    <div id="legend"></div>
+  </section>
+  <h1 class="iottext">Chart Type</h1>
+  <section>
+    <div id="renderer_form" class="toggler">
+      <input id="area" type="radio" name="renderer" value="area"/>
+      <label for="area">area</label>
+      <input id="bar" type="radio" name="renderer" value="bar"/>
+      <label for="bar">bar</label>
+      <input id="line" type="radio" name="renderer" value="line" checked=""/>
+      <label for="line">line</label>
+      <input id="scatter" type="radio" name="renderer" value="scatterplot"/>
+      <label for="scatter">scatter</label>
+    </div>
+  </section>
+  <h1 class="iottext">Customize</h1>
+  <section>
+    <div id="offset_form" class="iotoptionpanel">
+      <label for="stack">
+        <input id="stack" type="radio" name="offset" value="zero"/><span>stack</span>
+      </label>
+      <label for="stream">
+        <input id="stream" type="radio" name="offset" value="wiggle"/><span>stream</span>
+      </label>
+      <label for="pct">
+        <input id="pct" type="radio" name="offset" value="expand"/><span>pct</span>
+      </label>
+      <label for="value">
+        <input id="value" type="radio" name="offset" value="value" checked=""/><span>value</span>
+      </label>
+    </div>
+    <div id="interpolation_form" class="iotoptionpanel">
+      <label for="cardinal">
+        <input id="cardinal" type="radio" name="interpolation" value="cardinal" checked=""/><span>cardinal</span>
+      </label>
+      <label for="linear">
+        <input id="linear" type="radio" name="interpolation" value="linear"/><span>linear</span>
+      </label>
+      <label for="step">
+        <input id="step" type="radio" name="interpolation" value="step-after"/><span>step</span>
+      </label>
+      <label for="hidd">
+        <input id="hidd" type="radio" name="interpolation" value="" hidden="true"/><span></span>
+      </label>
+    </div>
+  </section>
+</form>
+<script>
+console.log("UI Controller Call ---- ");
+var myVar = <%- JSON.stringify(channelName) %>;
+  console.log("Channel Name is : "+myVar);
+  
+    $(document).on('page:load ready', function() {
+ 
+
+                    console.log('select_link clicked');
+				    var data = {};
+					data.title = "title";
+					data.message = "message";
+					
+					$.ajax({
+						type: 'POST',
+						data: JSON.stringify(data),
+				        contentType: 'application/json',
+                        url: 'http://localhost:7000/getsensorslist',						
+                        success: function(data) {
+                            console.log('success');
+							
+				  var dataStr=JSON.stringify(data);
+				   var str1 = dataStr.replace(/"/g, '');
+
+                      $.each(data, function(index, element) {
+					  console.log("Email "+ element.email);
+					  $("#deviceslist").append("<option value="+element._id+"|"+element.longitude+"|"+element.latitude+"|"+element.minthreshold+"|"+element.maxthreshold+">"+element.description+"</option>");
+
+         
+                         });				   
+				 
+ 
+
+                        }
+                    });
+
+             
+				
+
+  });
+  $( "#deviceslist" ).change(function() {
+  
+  //var minThreshold,maxThreshold;
+     var itemSelected = $("#deviceslist option:selected").last();
+		var item = itemSelected.val();
+		if(itemSelected.index() != 0){
+		
+		var sensorData=item.split("|");
+var longitude=sensorData[1];
+var latitude=sensorData[2];
+window.minThreshold=sensorData[3];
+window.maxThreshold=sensorData[4];
+
+console.log("Min" +minThreshold +"# Max "+maxThreshold);
+
+console.log(longitude +"#"+latitude);
+initialize(longitude,latitude);	
+
+					  $('#map-canvas').show(); 
+
+
+			
+		}else{
+					   $('#map-canvas').hide(); 
+
+		}
+ 
+					
+
+  
+
+
+	
+});
+  
+</script>
+<div id="chart_container">
+  <div id="chart">
+    <div class="iotdashboardtext">All devices currently in your organization are available in the Devices Dropdown.</div><br/>
+    <div class="iotdashboardtext">Select one to start visualizing device data.</div><img src="images/quickstartThing.svg" alt="Thing" align="middle" class="iotimages"/><img src="images/quickstartChart.svg" alt="Chart" align="middle" class="iotimages"/>
+  </div>
+  <div id="timeline"></div>
+  <div id="preview"></div>
+      <div id="map-canvas" hidden></div>
+
+</div>
+
+	
+
+<script type="text/javascript" src="js/realtime/mqttws31.js">
+
+</script>
+<script type="text/javascript" src="js/realtime/realtime.js"></script>
+<script type="text/javascript" src="js/realtime/realtimeGraph.js"></script>
+<script type="text/javascript" src="js/historian/historian.js"></script>
+<script type="text/javascript" src="js/historian/historianGraph.js"></script>
+<script type="text/javascript" src="js/uicontroller.js"></script>
+
+
+    <div id="footer">
+  <div class="container">
+    <p class="text-muted">
+
+      <span class="hidden-xs pull-left">
+        <a href="index.html" title="Open Source Internet of Things">EgyptTalk.com</a> |
+        <a href="docs.html" title="ThingSpeak Documentation">Documentation</a> |
+        <a href="docs/tutorials/index.html" title="Tutorials on how to use ThingSpeak web services">Tutorials</a>
+      </span>
+    
+
+    </p>
+  </div>
+</div>
+
+
+
+  </body>
+
+
+</html>
+
