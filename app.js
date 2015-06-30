@@ -20,8 +20,8 @@ var index = require('./routes/index');
 
 var app = express();
 
-var http_host = (process.env.VCAP_APP_HOST || '0.0.0.0');
-var http_port = (process.env.VCAP_APP_PORT || 7000);
+var http_host = (process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1');
+var http_port = (process.env.OPENSHIFT_NODEJS_PORT || 8080);
 app.set('sensorCounter',2);
 app.set('port', http_port);
 app.set('host',http_host);
@@ -48,7 +48,7 @@ var client = mqtt.createClient(1883, "localhost");
 
 
 
-mongoose.connect('mongodb://localhost/EgyIOTPortal', function (err) {
+mongoose.connect('mongodb://admin:password@ds031721.mongolab.com:31721/egyiotportal', function (err) {
 	console.log("APP.JS Processing connected to mongoDB");
 
   if (err){  
