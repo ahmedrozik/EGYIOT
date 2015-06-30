@@ -18,7 +18,7 @@ var nodemailer = require('nodemailer');
 console.log("Auth test");
 
 
-var client = mqtt.createClient(1883, "localhost");
+var client = mqtt.createClient(1883, "broker.mqtt-dashboard.com");
 
 
 router.get('/channel', function(req, res) {

@@ -10,8 +10,8 @@ var Realtime = function(orgId, api_key, auth_token ,sensorTopic) {
 
 	console.log("clientId: " + clientId);
 	//var hostname = orgId+".messaging.internetofthings.ibmcloud.com";
-	//var hostname="broker.mqtt-dashboard.com";
-		var hostname="localhost";
+	var hostname="broker.mqtt-dashboard.com";
+		//var hostname="localhost";
 
 	var client;
 
