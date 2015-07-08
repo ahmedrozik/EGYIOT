@@ -13,6 +13,13 @@ var schema = mongoose.Schema({
   , field: { type: String, required: true}
   , minthreshold: { type: String, required: true}
   , maxthreshold: { type: String, required: true}
+  , mobile: { type: String, required: true}
+  , sms: { type: String, required: false}
+  , emailEvent: { type: String, required: false}
+  , type: { type: String, required: true}
+  , eventSensor: { type: String, required: true}
+
+
   });
 
 // add created date property

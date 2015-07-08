@@ -13,47 +13,7 @@ var cleanString = require('../helpers/cleanString');
 var hash = require('../helpers/hash');
 var crypto = require('crypto');
 
-//all requests come here to validate the if api key is present
-//else redirect to login
-/*router.use(function(req, res, next) {
-console.log("Index page 1");
-	//set this header, so that there is no browser caching when destroying the session.
-	res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
-	
-	//check to see if we are in Bluemix and if we are bound to IoT service		
-	if (! req.session.api_key && process.env.VCAP_SERVICES && req.path.indexOf('login') === -1)
-	{
-		var keys = getAuthFromVCAP(process.env.VCAP_SERVICES);
-		if( keys.api_key) {
-									  console.log("Index page 2");
 
-			//found IoTF service, so set the api key and auth token
-			req.session.api_key=keys.api_key;
-			req.session.auth_token=keys.auth_token;
-			req.session.isBluemix= true;
-			res.redirect("/dashboard");
-		} else {
-			//no service found, so redirect to login page
-						  console.log("Index page 3");
-
-			res.render("/login",{ title: 'ejs' });
-			
-		}
-	}
-	// for api calls, send 401 code
-	else if(! req.session.api_key && req.path.indexOf('api') != -1) {
-		res.status(401).send({error: "Not authorized"});
-	}
-	// for all others, redirect to login page
-	else if(! req.session.api_key && req.path.indexOf('login') === -1) {
-			  console.log("Index page  4");
-
-		res.render("index",{ title: 'IOT' });
-	} else {
-		next();
-	}
-});
-*/
 
 router.get('/', function(req, res) {
 	console.log("Auth.js ////// index Page");
@@ -69,8 +29,10 @@ router.post('/signup', function(req, res) {
 	
 	    var email = cleanString(req.param('email'));
     var pass = cleanString(req.param('pass'));
+	    var mobile = cleanString(req.param('mobile'));
+
 	
-	console.log(" User "+email + " Password "+pass)
+	console.log(" User "+email + " Password "+pass +"mobile no ")
     if (!(email && pass)) {
       return invalid();
     }
@@ -86,7 +48,7 @@ router.post('/signup', function(req, res) {
       crypto.randomBytes(16, function (err, bytes) {
         if (err) return next(err);
 
-        var user = { _id: email };
+        var user = { _id: email , mobile: mobile };
         user.salt = bytes.toString('utf8');
         user.hash = hash(pass, user.salt);
 

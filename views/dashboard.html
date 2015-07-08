@@ -235,7 +235,7 @@ var myVar = <%- JSON.stringify(channelName) %>;
 						type: 'POST',
 						data: JSON.stringify(data),
 				        contentType: 'application/json',
-                        url: 'http://localhost:8080/getsensorslist',						
+                        url: '/getsensorslist',						
                         success: function(data) {
                             console.log('success');
 							

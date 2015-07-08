@@ -94,14 +94,14 @@ td, th {
       </ul>
       <ul class="nav navbar-nav navbar-right">
 
-        <li class="dropdown">
+     <!--   <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="/docs">Documentation</a></li>
             <li><a href="/docs/tutorials/">Tutorials</a></li>
             
           </ul>
-        </li>
+        </li>  -->
 
       
 
@@ -139,26 +139,7 @@ td, th {
             </tr>
           </thead>
           <tbody>
-              <tr>
-                <td>
 
-                  <h4 style="margin-top: 0;">
-                    <a href="dashboard">
-                      <i class="fa fa-unlock fa-fw"></i>
-                      EGYIOT
-                    </a>
-                  </h4>
-                  <div class="btn-group btn-group-sm hidden-xs hidden-sm">
-                    <a class="btn btn-default" href="dashboard">Private</a>
-                    <a class="btn btn-default" href="dashboard">Public</a>
-                    <a class="btn btn-default" href="dashboard">Settings</a>
-                    <a class="btn btn-default" href="dashboard">API Key</a>
-                    <a class="btn btn-default" href="dashboard">Data Import / Export</a>
-                  </div>
-
-                </td>
-                <td>2014-09-21</td>
-              </tr>
               <tr>
                 <td>
 
@@ -200,6 +181,17 @@ td, th {
     </p>
 	 <form accept-charset="UTF-8" id="addSensorForm" method="post">
     <table class="table_no_header">
+	
+	<tr>
+		<td> Select Sensor Type</td>
+	<td>
+
+	<select id="deviceType" class="devicesSelect">
+      <option value="input">Input</option>
+      <option value="output">Output</option>
+    </select>
+</td>
+    </tr>
       <tr>
         <td class="left">Channel ID</td>
         <td>16276</td>
@@ -217,7 +209,10 @@ td, th {
       </tr>
 	   <br>
 
-      
+          <tr>
+        <td class="left">Mobile No </td>
+        <td><input  id="channel_mob" name="channel_mob" type="text" /></td>
+      </tr>
     
       <tr>
         <td class="left">Latitude</td>
@@ -240,7 +235,24 @@ td, th {
         <td class="left">Maxmimum Threshold</td>
         <td><input id="channel_maxThreshold" name="channel_maxThreshold" type="text"  /></td>
       </tr>
-	  
+	  	<tr>
+		
+		<td> Trigger Sensor </td>
+	<td>
+
+	<select id="deviceslist" class="devicesSelect">
+      <option value="input">Please Select</option>
+    </select>
+</td>
+    </tr>
+	
+	    <tr>
+        <td class="left">SMS</td>
+        <td><input type="checkbox" name="sms" value="sms" id="sms"> </td>
+		<td class="left">Email</td>
+        <td><input type="checkbox" name="email" value="email" id="email"> </td>
+      </tr>
+	 
       <tr>
         <td class="left"></td>
         <td>
@@ -264,9 +276,42 @@ td, th {
     });
 	
 		$('#addSensorBtn').click(function(e){
+		
+		   var itemSelected = $("#deviceType option:selected").last();
+		var sensorType = itemSelected.val();
+		var sms,email ;
+		var isEmailChecked=$('#email').prop('checked');
+		var isSMSChecked=$('#sms').prop('checked');
+if(isEmailChecked){
+email=$('#email').val()
+}else{
+email="" ;
+}
+
+if(isSMSChecked){
+sms=$('#sms').val()
+}else{
+sms="";
+}
+
+
+     var itemSelected = $("#deviceslist option:selected").last();
+		var item = itemSelected.val();
+		var sensorID;
+		if(itemSelected.index() != 0){
+		
+		var sensorData=item.split("|");
+        sensorID=sensorData[0];
+        }else{
+          sensorID="No";
+        }
+console.log("Event sensor selected is "+sensorID);
+
+		
+		console.log("SMS Value is "+$('#sms').val()+"Email"+$('#email').val() + " Sensor Type "+sensorType);
                     e.preventDefault();
                     console.log('select_link clicked');
-				    var data = {maxthreshold:$('#channel_maxThreshold').val(),minthreshold:$('#channel_minThreshold').val(),name:$('#channel_name').val(),description:$('#channel_description').val(),longitude:$('#channel_longitude').val(),latitude:$('#channel_latitude').val(),field1:$('#channel_field1').val()};
+				    var data = {maxthreshold:$('#channel_maxThreshold').val(),minthreshold:$('#channel_minThreshold').val(),name:$('#channel_name').val(),description:$('#channel_description').val(),longitude:$('#channel_longitude').val(),latitude:$('#channel_latitude').val(),field1:$('#channel_field1').val(),mobile:$('#channel_mob').val(),sms:sms,email:email,sensortype:sensorType,eventSensor:sensorID};
 					data.title = "title";
 					data.message = "message";
 					
@@ -274,7 +319,7 @@ td, th {
 						type: 'POST',
 						data: JSON.stringify(data),
 				        contentType: 'application/json',
-                        url: 'http://localhost:8080/channel',						
+                        url: '/channel',						
                         success: function(data) {
                             console.log('success');
                             console.log(JSON.stringify(data));
@@ -311,6 +356,40 @@ td, th {
                 });	
 				
 
+				
+				    var data = {};
+					data.title = "title";
+					data.message = "message";
+					
+					$.ajax({
+						type: 'POST',
+						data: JSON.stringify(data),
+				        contentType: 'application/json',
+                        url: 'http://127.0.0.1:8080/getsensorslist',						
+                        success: function(data) {
+                            console.log('success');
+							
+				  var dataStr=JSON.stringify(data);
+				   var str1 = dataStr.replace(/"/g, '');
+
+                      $.each(data, function(index, element) {
+					  console.log("Email "+ element.email);
+					 if(element.type == "output"){
+					  $("#deviceslist").append("<option value="+element._id+"|"+element.longitude+"|"+element.latitude+"|"+element.minthreshold+"|"+element.maxthreshold+">"+element.description+"</option>");
+					  }
+
+         
+                         });				   
+				 
+ 
+
+                        }
+                    });
+
+
+					
+				
+				
   });
 
 
